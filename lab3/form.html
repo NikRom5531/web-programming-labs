@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анкета - Брачное агентство</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Анкета</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="form.html">Анкета</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <div class="instructions">
+            <div class="left">
+                <form>
+                    <label for="name">Имя:</label>
+                    <input type="text" id="name" name="name" required><br><br>
+                        
+                    <label for="age">Возраст:</label>
+                    <input type="number" id="age" name="age" required><br><br>
+                        
+                    <label for="gender">Пол:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Выберите пол</option>
+                        <option value="male">Мужской</option>
+                        <option value="female">Женский</option>
+                    </select><br><br>
+                    
+                    <label for="interests">Ваши интересы:</label>
+                    <textarea id="interests" name="interests" rows="4" cols="50"></textarea><br><br>
+                    
+                    <input type="submit" value="Отправить">
+                </form>
+            </div>
+            <div class="right">
+                <p><strong>Для заполнения анкеты, пожалуйста, следуйте указанным ниже инструкциям и правилам:</strong></p>
+                <p><strong>Имя:</strong> Введите ваше полное имя в соответствующее текстовое поле. Это обязательное поле.</p>
+                <p><strong>Возраст:</strong> Укажите ваш возраст в числовом формате. Это обязательное поле.</p>
+                <p><strong>Пол:</strong> Выберите ваш пол из выпадающего списка. Обязательно сделайте выбор из предложенных вариантов.</p>
+                <p><strong>Ваши интересы:</strong> Опишите ваши интересы или хобби в предоставленном текстовом поле.</p>
+                <p><strong>Пожалуйста, заполните все обязательные поля перед отправкой формы. Спасибо!</strong></p>
+            </div>
+        </div>  
+    </section>
+    <footer>
+        <p>&copy; 2024 Брачное агентство. Все права защищены.</p>
+        <a href="#">Политика конфиденциальности</a>
+    </footer>
+</body>
+</html>

@@ -40,7 +40,6 @@
 </style>
 </head>
 <body>
-
 <div class="container">
     <h2>Вычисление площади прямоугольника</h2>
     <label for="length">Длина:</label>
@@ -49,7 +48,6 @@
     <input onclick="calculateArea()" type="number" id="width" placeholder="Введите ширину">
     <p id="result"></p>
 </div>
-
 <script>
     function calculateArea() {
         var length = parseFloat(document.getElementById('length').value);
@@ -59,6 +57,5 @@
         else document.getElementById('result').innerText = "";
     }
 </script>
-
 </body>
 </html>

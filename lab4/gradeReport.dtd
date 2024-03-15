@@ -1,0 +1,12 @@
+<!DOCTYPE gradeReport [
+<!ELEMENT gradeReport (date, subject, examiner, gradeList)>
+<!ELEMENT date (#PCDATA)>
+<!ELEMENT subject (#PCDATA)>
+<!ELEMENT examiner (#PCDATA)>
+<!ELEMENT gradeList (gradeRecord+)>
+<!ELEMENT gradeRecord (student, grade)>
+<!ELEMENT student (#PCDATA)>
+<!ELEMENT grade (#PCDATA)>
+<!ATTLIST gradeReport id CDATA #REQUIRED>
+<!ATTLIST gradeRecord id CDATA #REQUIRED>
+]>

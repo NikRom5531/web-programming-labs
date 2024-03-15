@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Лабораторная работа №8</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    h1 {
+        text-align: center;
+    }
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    form {
+        margin-top: 20px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+    p {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Задание №1</h2>
+    <p id="dateTime"></p>
+    <form id="stringForm">
+        <label for="inputString">Введите строку:</label>
+        <input type="text" id="inputString" placeholder="Введите строку">
+        <button type="button" onclick="analyzeString()">Анализировать строку</button>
+    </form>
+    <div id="stringAnalysis"></div>
+</div>
+<div class="container">
+    <h2>Задание №2</h2>
+    <div id="insects"></div>
+</div>
+<script>
+    // Задание №1
+    function displayDateTime() {
+        setInterval(function() {
+            const daysOfWeek = ["воскресенье", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота"];
+            const months = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
+            const now = new Date();
+            const dayOfWeek = daysOfWeek[now.getDay()];
+            const dayOfMonth = now.getDate();
+            const month = months[now.getMonth()];
+            const year = now.getFullYear();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+            const dateTimeString = `Сегодня - ${dayOfMonth} ${month} ${year} года, ${hours}:${minutes}:${seconds}, ${dayOfWeek}`;
+            document.getElementById('dateTime').innerText = dateTimeString;
+        }, 1000);
+    }
+    function analyzeString() {
+        const inputString = document.getElementById('inputString').value.toLowerCase();
+        const charCount = {};
+        for (let char of inputString) {
+            if (char.match(/[a-zа-я]/)) {
+                charCount[char] = (charCount[char] || 0) + 1;
+            }
+        }
+        const sortedChars = Object.keys(charCount).sort(function(a, b) {
+            return charCount[b] - charCount[a];
+        });
+        let analysisResult = "<p>Анализ строки:</p>";
+        sortedChars.forEach(function(char) {
+            analysisResult += `<p>Буква "${char}" повторяется ${charCount[char]} раз(а)</p>`;
+        });
+        document.getElementById('stringAnalysis').innerHTML = analysisResult;
+    }
+    displayDateTime();
+    // Задание №2
+    function Insect(name, color, legs) {
+        this.name = name;
+        this.color = color;
+        this.legs = legs;
+    }
+    Insect.prototype.sound = function() {
+        return "Жужжит";
+    }
+    Insect.prototype.details = function() {
+        return `${this.name} цвета ${this.color} с ${this.legs} ножками. ${this.sound()}`;
+    }
+    const insectsData = [
+        { name: "Пчела", color: "жёлтого", legs: 6 },
+        { name: "Жук", color: "коричневого", legs: 6 },
+        { name: "Бабочка", color: "разноцветного", legs: 6 },
+        { name: "Муха", color: "чёрного", legs: 6 },
+        { name: "Оса", color: "жёлтого", legs: 6 },
+        { name: "Паук", color: "чёрного", legs: 8 },
+        { name: "Таракан", color: "коричневого", legs: 6 },
+        { name: "Муравей", color: "чёрного", legs: 6 }
+    ];
+    function displayInsects() {
+        const container = document.getElementById('insects');
+        let html = "<p>Список насекомых:</p>";
+        insectsData.forEach(function(data) {
+            const insect = new Insect(data.name, data.color, data.legs);
+            html += `<p>${insect.details()}</p>`;
+        });
+        container.innerHTML = html;
+    }
+    displayInsects();
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Изменение цвета фона</title>
+</head>
+<body>
+<script>
+    let colorChangesCounter = 0;
+    function getRandomColor() {
+        let color = Math.round(255.0 * Math.random()).toString(16);
+        if (color.length == 1) {
+            color = "0" + color;
+        }
+        return color;
+    }
+    function changeBackgroundColor() {
+        setInterval(function() {
+            const color = "#" + getRandomColor() + getRandomColor() + getRandomColor();
+            document.body.style.backgroundColor = color;
+            colorChangesCounter++;
+            document.getElementById('colorCounter').innerText = "Количество смен цвета: " + colorChangesCounter;
+        }, 1000);
+    }
+    window.onload = changeBackgroundColor;
+</script>
+<p id="colorCounter">Количество смен цвета: 0</p>
+</body>
+</html>

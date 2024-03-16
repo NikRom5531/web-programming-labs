@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Регистрация</title>
+    <script src="https://cdn.jsdelivr.net/npm/inputmask@5.0.6/dist/inputmask.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Форма Регистрации</h2>
+        <p>Для регистрации необходимо указать Ваши персональные данные</p>
+        <form id="registrationForm">
+            <div class="input-group">
+                <label for="fullName" class="required">Фамилия Имя Отчество:</label>
+                <input type="text" id="fullName" name="fullName" required placeholder="Иванов Иван Иванович">
+                <span class="error-message">Это поле обязательно для заполнения</span>
+            </div>
+            <div class="input-group">
+                <label for="organization">Организация (Компания):</label>
+                <input type="text" id="organization" name="organization" placeholder="ООО Рога и Копыта">
+            </div>
+            <div class="input-group">
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone" placeholder="+7 (999) 999-99-99">
+                <span class="error-message">Введите корректный номер телефона</span>
+            </div>
+            <div class="input-group">
+                <label for="email" class="required">Адрес электронной почты:</label>
+                <input type="email" id="email" name="email" required placeholder="example@domain.com">
+                <span class="error-message">Введите корректный адрес электронной почты</span>
+            </div>
+            <div class="button-group">
+                <button type="submit" id="submitButton" disabled>Отправить</button>
+                <button type="reset">Очистить</button>
+            </div>
+        </form>
+        <div id="successMessage">
+            Данные успешно отправлены!
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
